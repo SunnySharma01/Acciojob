@@ -1,0 +1,36 @@
+import java.util.*;
+
+class Main {
+
+  public static void main(String args[]) {
+    Scanner sc = new Scanner(System.in);
+    int t = sc.nextInt();
+    while (t-- > 0) {
+      String s = sc.next();
+      String ans = camelCase(s);
+      System.out.println(ans);
+    }
+  }
+
+  static String camelCase(String s) {
+    // your code here
+	    StringBuilder result= new StringBuilder();
+
+	  //traverse through the string using a for loop
+	  for(int i=0;i<s.length();i++){
+		  // If at all my current character is not an underscore
+		  //then keep it as it is
+		  if(s.charAt(i)!='_'){
+			  result.append(s.charAt(i));
+		  }
+		  else{
+			  // current character is underscore
+
+			  i++;//ignore underscore
+			  result.append(Character.toUpperCase(s.charAt(i)));// and making the next character as capital
+		  }
+	  }
+	  return result.toString();
+
+  }
+}
