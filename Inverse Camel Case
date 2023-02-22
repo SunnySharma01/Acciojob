@@ -1,0 +1,24 @@
+import java.io.*;
+import java.util.*;
+public class Main {
+  
+  public static void solution(String str) 
+	{
+    for(int i=0;i<str.length()-1;i++)
+		{
+			if(str.charAt(i+1)>='A' && str.charAt(i+1)<='Z'){
+				System.out.println(str.charAt(i));
+			}else{
+				System.out.print(str.charAt(i));
+			}
+				
+		}
+	  System.out.print(str.charAt(str.length()-1));
+  }
+	  
+  public static void main(String[] args) {
+    Scanner scn = new Scanner(System.in);
+    String str = scn.next();
+    solution(str);
+  }
+}
