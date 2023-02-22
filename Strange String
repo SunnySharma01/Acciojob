@@ -1,0 +1,34 @@
+import java.io.*;
+import java.util.*;
+ 
+public class Main {
+    static String strangeString(int n) {
+		int count = 1;
+		char start = 'a';
+		StringBuilder ans = new StringBuilder();
+		
+		while(count<=n){
+			if(count%2!=0){
+				ans.insert(0,start);
+			}else{
+				ans.append(start);
+			}
+			count++;
+			start++;
+ 
+			if(start>'z')
+				start='a';
+		}
+ 
+		return ans.toString();
+    }
+    
+    public static void main(String args[]) {
+        Scanner input = new Scanner(System.in);
+        int t = input.nextInt();
+        while (t-- > 0){
+            int n = input.nextInt();
+            System.out.println(strangeString(n));
+        }
+    }
+}
