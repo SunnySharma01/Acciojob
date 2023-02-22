@@ -1,0 +1,68 @@
+import java.util.*;
+public class Main {
+    public static void main(String args[]) {
+        Scanner input = new Scanner(System.in);
+        int n=input.nextInt();
+        input.nextLine();
+        StringBuilder str=new StringBuilder(input.nextLine());
+        
+        solve(str,n);
+ 
+        input.close();
+    }
+ 
+	public static int checkAJNumber(long number){
+		// return 1 -> AJ Number
+		// return 0 -> Not an AJ Number
+		if(number==0 || number==1){
+			return 0;
+		}
+		int arr[]={2,3,5,7,11,13,17,19,23,29};
+		for(int i=0;i<arr.length;i++){
+			if(number==arr[i]){
+				//number is AccioJob number
+				return 1;
+			}
+		}
+		// multiples of AJ number is not an AJ number
+		for(int i=0;i<arr.length;i++){
+			if(number%arr[i]==0){
+				// number is not an AccioJob number
+				//example => number =100
+				return 0;
+			}
+		}
+		return 1;
+	}
+ 
+	public static int checkAvailability(int[] isUsed,int start, int end){
+		for(int i=start;i<end;i++){
+			if(isUsed[i]==1){
+				// my ith number is already used -> so we cannot use this postion -> so it is not available
+				//Overlapped
+				return 0;
+			}
+		}
+		// there is no overlapping => isUsed[i]=0(from i=start to end-1) => Given interval is available
+		return 1;
+	}
+	
+    public static void solve(StringBuilder str,int n){
+		int isUsed[]=new int[n];
+		int count=0;
+ 
+		for(int len_substring=1;len_substring<=n;len_substring++){
+			for(int start=0;start<=(n-len_substring);start++){
+				//string to long
+				long number=Long.parseLong(str.substring(start,start+len_substring));
+				if(checkAJNumber(number)==1 && checkAvailability(isUsed,start,start+len_substring)==1){
+					count++;
+					for(int i=start;i<(start+len_substring);i++){
+						isUsed[i]=1;
+					}
+				}
+			}
+		}
+		System.out.println(count);
+    }
+}
