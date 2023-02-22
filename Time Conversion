@@ -1,0 +1,38 @@
+import java.util.*;
+ 
+public class Main {
+    static String timeConversion(String s) {
+        
+		int hour = (s.charAt(0)-'0')*10+(s.charAt(1)-'0')*1;
+		
+		String ans = "";
+		String time = s.substring(s.length()-2,s.length());
+ 
+		if(time.equals("AM") && s.substring(0,2).equals("12")){
+		 ans+="00";
+			ans += s.substring(2,s.length()-2);
+		return ans;
+		}
+ 
+		
+		if(time.equals("AM") || s.substring(0,2).equals("12")){
+			return s.substring(0,s.length()-2);
+		}else{
+			int n = Integer.parseInt(s.substring(0,2));
+			int a = n+12;
+			
+			ans += Integer.toString(a);
+			ans += s.substring(2,s.length()-2);
+		}
+		
+		
+		return ans;
+    }
+ 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.next();
+        System.out.print(timeConversion(str));
+        
+    }
+}
