@@ -1,0 +1,30 @@
+import java.io.*;
+import java.util.*;
+ 
+public class Main {
+ 
+       static String hey(String str)
+      {
+		  String ans = "";
+		  int n = str.length();
+		  int s = 0;
+		  while(s!=n){
+			  char c = str.charAt(s);
+			  if(c=='e'){
+				  ans+="ee";
+			  }else{
+				  ans+=c;
+			  }
+			  s++;
+		  }
+ 
+		  return ans;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str=sc.next();
+        String result = hey(str);
+        System.out.print(result);        
+        System.out.println('\n');
+    }
+}
