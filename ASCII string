@@ -1,0 +1,21 @@
+import java.io.*;
+import java.util.*;
+public class Main {
+  
+  public static String solution(String str) {
+	  StringBuilder ans = new StringBuilder();
+ 
+	  for(int i=0;i<str.length();i++){
+		  ans.append(str.charAt(i));
+		  if(i+1<str.length())
+		  ans.append(String.valueOf(str.charAt(i+1)-str.charAt(i)));
+	  }
+	  return ans.toString();
+  }
+ 
+  public static void main(String[] args) {
+    Scanner scn = new Scanner(System.in);
+    String str = scn.next();
+    System.out.println(solution(str));
+  }
+}
