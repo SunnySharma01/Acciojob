@@ -1,0 +1,40 @@
+import java.io.*;
+import java.util.*;
+ 
+public class Main {
+static int[] charRow = new int[]{2, 3, 3, 2, 1, 2, 2, 2, 1, 2, 2, 2, 3, 3, 1, 1, 1, 1, 2, 1, 1, 3, 1, 3, 1, 3};
+    static ArrayList<String> getStrings(ArrayList<String> arr)
+    {
+ 
+		   ArrayList<String> result = new ArrayList<String>();
+    for(int i = 0; i < arr.size(); i++){
+         String cur = arr.get(i);
+         int[] c = new int[4];
+         int len = cur.length();
+	         for(int j = 0; j < len; j++) {
+	            c[charRow[cur.charAt(j) - 'a']] = 1;
+				}
+	    if(c[1] + c[2] + c[3] == 1) {
+			   result.add(cur);
+		   }
+    }
+ 
+    return result;
+    }
+ 
+    public static void main(String args[]) throws IOException {
+        Scanner sc = new Scanner(System.in);
+    
+        int n = sc.nextInt();
+        ArrayList<String> arr = new ArrayList<String>();
+        for(int i = 0; i < n; i++){
+            String s = sc.next();
+            arr.add(s);
+        }
+ 
+        ArrayList<String> result = getStrings(arr);
+        for(int i = 0; i < result.size(); i++){
+            System.out.println(result.get(i));
+        }
+    }
+}
