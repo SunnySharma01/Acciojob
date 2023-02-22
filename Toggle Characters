@@ -1,0 +1,37 @@
+import java.util.*;
+
+public class Main {
+
+  public static void main(String[] args) throws Throwable {
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    sc.nextLine();
+    String str = sc.nextLine();
+    toggleCase(n, str);
+  }
+
+  static void toggleCase(int n, String str) {
+    // your code here
+	    char[] arr =new char[n];
+	  for(int i=0;i<n;i++){
+		  arr[i]=str.charAt(i);
+	  }
+
+	  //ascii value of 'A'-> 65
+	  //ascii value of 'a'-> 97
+
+	  // use for loop to traverse the string 
+	  for(int i=0;i<n;i++){
+		  //if current character(arr[i]) is capital letter -> make it small letter
+		  if(arr[i]>='A' && arr[i]<='Z'){
+			  // example -> 'C'(67)-> 'c'(67+32=99)
+			  arr[i]=(char)(arr[i]+32);
+		  }
+		  //if current character(arr[i]) is small letter -> make it capital letter
+		  else if(arr[i]>='a' && arr[i]<='z'){
+			  arr[i]=(char)(arr[i]-32);
+		  }
+		  System.out.print(arr[i]);
+	  }  
+  }
+}
