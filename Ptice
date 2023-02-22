@@ -1,0 +1,56 @@
+import java.util.*;
+ 
+public class Main {
+    
+    static void ptice(int n, String key) {
+     
+		String a ="ABC";
+		String b ="BABC";
+		String c ="CCAABB";
+ 
+		int count1 = 0;
+		int count2 = 0;
+		int count3 = 0;
+		
+		for(int i=0;i<n;i++){
+		
+			if(a.charAt(i%3)==key.charAt(i)){
+				count1++;
+			}
+ 
+			if(b.charAt(i%4)==key.charAt(i)){
+				count2++;
+			}
+ 
+			if(c.charAt(i%6)==key.charAt(i)){
+				count3++;
+			}
+	
+		}
+ 
+		int max = Math.max(count1,Math.max(count2,count3));
+		System.out.println(max);
+ 
+		if(count1==max){
+			System.out.println("Adrian");			
+		}
+ 
+		if(count2==max){
+			System.out.println("Bruno");			
+		}
+ 
+		if(count3==max){
+			System.out.println("Goran");			
+		}
+ 
+    }  
+  
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n;
+        n = sc.nextInt();
+        String str = sc.next();
+        ptice(n, str);
+        sc.close();
+    }
+}
